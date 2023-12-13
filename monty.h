@@ -37,6 +37,10 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+stack_t *add_dnodeint(stack_t **head, const int n);
+size_t print_dlistint(const stack_t *h);
+size_t dlistint_len(const stack_t *h);
+void free_dlistint(stack_t *head);
 
 void (*get_op_code(char *ins))(stack_t **, unsigned int);
 void push(stack_t **stack, unsigned int line_number);
@@ -46,4 +50,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+
+void exitf(stack_t **stack);
 #endif

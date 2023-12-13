@@ -21,12 +21,12 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE); }
+		exitf(top); }
 	fP = fopen(argv[1], "r");
 	if (fP == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE); }
+		exitf(top); }
 	while (1)
 	{
 		rby = getline(&line, &n, fP);
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		if (ptrop == NULL)
 		{
 			printf("L%d: unknown instruction %s\n", lineNo, instr);
-			exit(EXIT_FAILURE); }
+			exitf(top); }
 		ptrop(top, lineNo); }
 	free(line);
 	fclose(fP);
