@@ -1,4 +1,5 @@
 #include "monty.h"
+char *line;
 
 /**
  * push - pushes an element to the stack
@@ -14,11 +15,13 @@ void push(stack_t **stack, unsigned int line_number)
 	if (input == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free(line);
 		exitf(stack); }
 	num = atoi(input);
 	if (num == 0 && strcmp(input, "0") != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free(line);
 		exitf(stack); }
 	(*stack) = add_dnodeint(stack, num); }
 
@@ -44,6 +47,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		free(line);
 		exitf(stack); }
 	fprintf(stdout, "%d\n",  (*stack)->n); }
 
@@ -60,6 +64,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free(line);
 		exitf(stack); }
 	temp = *stack;
 	*stack = temp->next;
@@ -80,6 +85,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free(line);
 		exitf(stack); }
 	temp = (*stack);
 	(*stack) = (*stack)->next;
