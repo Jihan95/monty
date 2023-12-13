@@ -29,8 +29,10 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		rby = getline(&line, &n, fP);
-		if (rby == EOF || rby == '\0' || line[0] == '\n')
+		if (rby == EOF)
 			break;
+		if (rby == '\0' || line[0] == '\n')
+			continue;
 		line[strcspn(line, "\n")] = '\0';
 		lineNo++;
 		instr = strtok(line, " ");
