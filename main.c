@@ -16,17 +16,17 @@ int main(int argc, char *argv[])
 	size_t n = 256;
 	ssize_t rby;
 	void (*ptrop)(stack_t **, unsigned int);
-	stack_t **top = NULL;
+	stack_t *top = NULL;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		exitf(top); }
+		exitf(&top); }
 	fP = fopen(argv[1], "r");
 	if (fP == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exitf(top); }
+		exitf(&top); }
 	while (1)
 	{
 		rby = getline(&line, &n, fP);
@@ -39,8 +39,8 @@ int main(int argc, char *argv[])
 		if (ptrop == NULL)
 		{
 			printf("L%d: unknown instruction %s\n", lineNo, instr);
-			exitf(top); }
-		ptrop(top, lineNo); }
+			exitf(&top); }
+		ptrop(&top, lineNo); }
 	free(line);
 	fclose(fP);
 	return (0); }
