@@ -30,6 +30,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 void pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
+	if (*stack == NULL)
+		return;
 	print_dlistint(*stack); }
 
 /**
