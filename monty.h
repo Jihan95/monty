@@ -9,7 +9,6 @@
 #define DEFAULT_LINE_SIZE 128
 
 extern FILE *fP;
-extern char *line;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
