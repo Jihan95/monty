@@ -11,7 +11,6 @@ void push(stack_t **stack, unsigned int line_number)
 	char *input = strtok(NULL, "\n");
 	int num;
 
-	input[strcspn(input, "\n")] = '\0';
 	num = atoi(input);
 	if (num == 0 && strcmp(input, "0") != 0)
 	{
