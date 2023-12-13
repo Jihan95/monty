@@ -43,8 +43,7 @@ int main(int argc, char *argv[])
 			printf("L%d: unknown instruction %s\n", lineNo, instr);
 			free(line);
 			exitf(&top); }
-		ptrop(&top, lineNo);
-		free(line); }
+		ptrop(&top, lineNo); }
 	free_dlistint(top);
 	free(line);
 	fclose(fP);
