@@ -1,4 +1,6 @@
 #include "monty.h"
+FILE *fP;
+char *line;
 
 /**
  * exitf - freeing the stack and exit the program
@@ -7,7 +9,9 @@
 
 void exitf(stack_t **stack)
 {
-	if (*stack == NULL && stack == NULL)
+	if (*stack != NULL)
 		free_dlistint(*stack);
+	free(line);
+	fclose(fP);
 	exit(EXIT_FAILURE);
 }

@@ -11,9 +11,8 @@
 int main(int argc, char *argv[])
 {
 	int lineNo = 0;
-	FILE *fP;
 	char *line = NULL, *instr;
-	size_t n = 256;
+	size_t n = DEFAULT_LINE_SIZE;
 	ssize_t rby;
 	void (*ptrop)(stack_t **, unsigned int);
 	stack_t *top = NULL;
@@ -41,6 +40,7 @@ int main(int argc, char *argv[])
 			printf("L%d: unknown instruction %s\n", lineNo, instr);
 			exitf(&top); }
 		ptrop(&top, lineNo); }
+	free_dlistint(top);
 	free(line);
 	fclose(fP);
 	return (0); }
