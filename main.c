@@ -1,4 +1,5 @@
 #include "monty.h"
+#define DEFAULT_LINE_SIZE 128
 
 /**
  * main - the main logic of program
@@ -40,6 +41,7 @@ int main(int argc, char *argv[])
 		if (ptrop == NULL)
 		{
 			printf("L%d: unknown instruction %s\n", lineNo, instr);
+			free(line);
 			exitf(&top); }
 		ptrop(&top, lineNo); }
 	free_dlistint(top);
