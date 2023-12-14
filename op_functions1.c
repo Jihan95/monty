@@ -48,6 +48,6 @@ void sub(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exitf(stack); }
 	temp = (*stack);
-	diff = temp->n - temp->next->n;
-	temp->next->n = abs(diff);
+	diff = temp->next->n - temp->n;
+	temp->next->n = diff;
 	pop(stack, line_number); }
