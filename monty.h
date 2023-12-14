@@ -9,7 +9,9 @@
 #include <ctype.h>
 
 extern FILE *fP;
+FILE *fP;
 extern char *line;
+char *line;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
