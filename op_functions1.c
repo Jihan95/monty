@@ -49,5 +49,5 @@ void sub(stack_t **stack, unsigned int line_number)
 		exitf(stack); }
 	temp = (*stack);
 	diff = temp->n - temp->next->n;
-	temp->next->n = diff;
+	temp->next->n = abs(diff);
 	pop(stack, line_number); }
