@@ -18,6 +18,8 @@ void (*get_op_code(char *ins))(stack_t **, unsigned int)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 	int i = 0;
