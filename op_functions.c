@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *input = strtok(NULL, "\n");
 	int num;
 
-	if (input == NULL)
+	if (input == NULL || isNumber(input) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(line);
