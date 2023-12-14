@@ -1,7 +1,7 @@
 #include "monty.h"
 #define DEFAULT_LINE_SIZE 256
-char *line = NULL;
 FILE *fP;
+char *line = NULL;
 
 /**
  * main - the main logic of program

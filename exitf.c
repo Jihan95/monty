@@ -1,6 +1,6 @@
 #include "monty.h"
-char *line;
 FILE *fP;
+char *line;
 
 /**
  * exitf - freeing the stack and exit the program
