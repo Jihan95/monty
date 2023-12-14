@@ -10,6 +10,9 @@ void exitf(stack_t **stack)
 {
 	if (*stack != NULL)
 		free_dlistint(*stack);
+	printf("%s hi \n", line);
+	free(line);
+	printf("%s hi \n", line);
 	fclose(fP);
 	exit(EXIT_FAILURE);
 }

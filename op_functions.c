@@ -9,20 +9,14 @@ char *line;
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	char *input = strtok(NULL, "\n");
+	char *input = strtok(NULL, "\t\n ");
 	int num;
 
 	if (input == NULL || isNumber(input) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(line);
 		exitf(stack); }
 	num = atoi(input);
-	if (num == 0 && strcmp(input, "0") != 0)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(line);
-		exitf(stack); }
 	(*stack) = add_dnodeint(stack, num); }
 
 /**
