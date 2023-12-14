@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
 		lineNo++;
 		instr = strtok(line, "\t\n ");
 		ptrop = get_op_code(instr);
+		if (strcmp(instr, "push") != 0)
+			free(line);
 		if (ptrop == NULL)
 		{
 			printf("L%d: unknown instruction %s\n", lineNo, instr);
