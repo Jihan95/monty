@@ -1,7 +1,6 @@
 #include "monty.h"
 #define DEFAULT_LINE_SIZE 256
-FILE *fP;
-char *line = NULL;
+struct fal GV;
 
 /**
  * main - the main logic of program
@@ -24,23 +23,23 @@ int main(int argc, char *argv[])
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exitf(&top); }
-	fP = fopen(argv[1], "r");
-	if (fP == NULL)
+	GV.fP = fopen(argv[1], "r");
+	if (GV.fP == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exitf(&top); }
 	while (1)
 	{
-		rby = getline(&line, &n, fP);
+		rby = getline(&GV.line, &n, GV.fP);
 		if (rby == EOF)
 			break;
-		if (rby == '\0' || line[0] == '\n')
+		if (rby == '\0' || GV.line[0] == '\n')
 			continue;
-		if (isallspaces(line) == 1)
+		if (isallspaces(GV.line) == 1)
 			continue;
-		line[strcspn(line, "\n")] = '\0';
+		GV.line[strcspn(GV.line, "\n")] = '\0';
 		lineNo++;
-		instr = strtok(line, "\t\n ");
+		instr = strtok(GV.line, "\t\n ");
 		ptrop = get_op_code(instr);
 		if (ptrop == NULL)
 		{
@@ -48,6 +47,6 @@ int main(int argc, char *argv[])
 			exitf(&top); }
 		ptrop(&top, lineNo); }
 	free_dlistint(top);
-	free(line);
-	fclose(fP);
+	free(GV.line);
+	fclose(GV.fP);
 	return (0); }

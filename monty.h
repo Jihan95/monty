@@ -8,9 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 
-extern FILE *fP;
-extern char *line;
-
+/*--- Struct Definitions ---*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,6 +39,21 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct fal - file pointer and line
+ * @fP: file pointer
+ * @line: the line read by getline
+ *
+ * Description: file pointer and line
+ * for stack
+ */
+struct fal
+{
+	FILE *fP;
+	char *line;
+};
+
+extern struct fal GV;
 int isNumber(const char *str);
 int isallspaces(const char *str);
 
