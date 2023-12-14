@@ -11,6 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *input = strtok(NULL, "\t\n ");
 	int num;
 
+	input[strcspn(input, "\n")] = '\0';
 	if (input == NULL || isNumber(input) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);

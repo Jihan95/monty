@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 		line[strcspn(line, "\n")] = '\0';
 		lineNo++;
 		instr = strtok(line, "\t\n ");
+		instr[strcspn(instr, "\n")] = '\0';
 		ptrop = get_op_code(instr);
 		if (ptrop == NULL)
 		{
