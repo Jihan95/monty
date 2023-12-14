@@ -11,6 +11,8 @@ int isNumber(const char *str)
 {
 	if (str == NULL || *str == '\0')
 		return (0);
+	if (*str == '-')
+		str++;
 	while (*str)
 	{
 		if (!isdigit(*str))
