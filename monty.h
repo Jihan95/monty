@@ -42,6 +42,7 @@ typedef struct instruction_s
 } instruction_t;
 
 int isNumber(const char *str);
+int isallspaces(const char *str);
 
 stack_t *add_dnodeint(stack_t **head, const int n);
 size_t print_dlistint(const stack_t *h);

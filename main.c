@@ -36,9 +36,11 @@ int main(int argc, char *argv[])
 			break;
 		if (rby == '\0' || line[0] == '\n')
 			continue;
+		if (isallspaces(line) == 1)
+			continue;
 		line[strcspn(line, "\n")] = '\0';
 		lineNo++;
-		instr = strtok(line, " ");
+		instr = strtok(line, "\t\n ");
 		ptrop = get_op_code(instr);
 		if (ptrop == NULL)
 		{
