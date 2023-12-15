@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 		rby = getline(&GV.line, &n, GV.fP);
 		if (rby == EOF)
 			break;
-		if (GV.line[0] == '\n' || isallspaces(GV.line) == 1)
+		if (GV.line[0] == '\n' || isallspaces(GV.line) == 1 || GV.line[0] == '#')
 		{
 			lineNo++;
 			continue; }
