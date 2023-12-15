@@ -20,6 +20,7 @@ void (*get_op_code(char *ins))(stack_t **, unsigned int)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	int i = 0;
