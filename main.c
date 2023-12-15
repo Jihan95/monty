@@ -22,28 +22,28 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		exitf(&top); }
+		exit(EXIT_FAILURE); }
 	GV.fP = fopen(argv[1], "r");
 	if (GV.fP == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exitf(&top); }
+		exit(EXIT_FAILURE); }
 	while (1)
 	{
 		rby = getline(&GV.line, &n, GV.fP);
 		if (rby == EOF)
 			break;
-		if (rby == '\0' || GV.line[0] == '\n')
-			continue;
-		if (isallspaces(GV.line) == 1)
-			continue;
+		if (GV.line[0] == '\n' || isallspaces(GV.line) == 1)
+		{
+			lineNo++;
+			continue; }
 		GV.line[strcspn(GV.line, "\n")] = '\0';
 		lineNo++;
 		instr = strtok(GV.line, "\t\n ");
 		ptrop = get_op_code(instr);
 		if (ptrop == NULL)
 		{
-			printf("L%d: unknown instruction %s\n", lineNo, instr);
+			fprintf(stderr, "L%d: unknown instruction %s\n", lineNo, instr);
 			exitf(&top); }
 		ptrop(&top, lineNo); }
 	free_dlistint(top);

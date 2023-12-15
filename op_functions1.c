@@ -44,7 +44,7 @@ void sub(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exitf(stack); }
 	diff = temp->next->n - temp->n;
 	temp->next->n = diff;
@@ -63,7 +63,7 @@ void _div(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exitf(stack); }
 	if (temp->n == 0)
 	{
@@ -86,7 +86,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		exitf(stack); }
 	res = temp->n * temp->next->n;
 	temp->next->n = res;
